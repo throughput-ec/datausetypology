@@ -1,4 +1,11 @@
-gen_figthree <- function(datatable, outputfile) {
+#' @title Barplot of data-use typologies and the associated counts
+#' @description Takes code repositories from a subset of all Throughput data
+#' for which metadata was collected and use case typologies were assigned.
+#' @param datatable The input table to be manipulated.
+#' @param outputfile The file (and directory) for the output graph.
+#' @param ... variables to be used by \code{ggsave}
+#' @return A file saved to the \code{outputfile} location.
+gen_figthree <- function(datatable, outputfile, ...) {
   
   typologyCount <- datatable %>% group_by(Category) %>% 
     summarise(n = n()) %>% 
@@ -15,5 +22,5 @@ gen_figthree <- function(datatable, outputfile) {
     theme(axis.title = element_text(face = 'bold', size = 18),
           axis.text = element_text(size = 10))
   
-  ggsave(outputfile, output)
+  ggsave(outputfile, output, ...)
 }

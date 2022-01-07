@@ -26,5 +26,5 @@ gen_figtwo <- function(datatable, outputfile, ...) {
           axis.text = element_text(size = 10),
           panel.grid.major.x = element_line(color = rgb(0.2, 0.2, 0.2, 0.1)))
 
-  ggsave(outputfile, archives)
+  ggsave(outputfile, archives, ...)
 }
